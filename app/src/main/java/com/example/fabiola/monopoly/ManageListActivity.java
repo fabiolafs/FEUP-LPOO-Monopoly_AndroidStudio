@@ -45,13 +45,15 @@ public class ManageListActivity extends Activity {
                Intent i = new Intent(getApplicationContext(), ShowPropertyActivity.class);
                i.putExtra("property_name", theText);
                startActivity(i);
-               */
+
 
                System.out.println("value : " + theText);
                System.out.println("PropertyPosition : " + position);
                System.out.println("Propertyid : " + id);
                System.out.println("PropertyParent : " + parent);
                System.out.println("-------------------------------------------");
+
+               */
            }
        });
 
