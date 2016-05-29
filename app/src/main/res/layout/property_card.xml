@@ -1,0 +1,118 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keypad"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/fab_margin"
+    android:stretchColumns="*">
+    <TableRow
+        android:background="#ff0000">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="Property Name"
+            android:id="@+id/propertyName_textView"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_span="2" />
+    </TableRow>
+
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="Rent value"
+            android:id="@+id/textView"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="10"
+            android:id="@+id/rentValue_textView"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="With 1 House"
+            android:id="@+id/textView1"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/rentValue1House_textView" />
+    </TableRow>
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="With 2 House"
+            android:id="@+id/textView2"
+            android:layout_gravity="center" />
+        <TextView
+            android:text="100"
+            android:id="@+id/rentValue2House_textView" />
+    </TableRow>
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="With 3 House"
+            android:id="@+id/textView3"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/rentValue3House_textView" />
+    </TableRow>
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="With 4 House"
+            android:id="@+id/textView4"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/rentValue4House_textView" />
+    </TableRow>
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="With Hotel"
+            android:id="@+id/textView5"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/rentValueHotel_textView" />
+    </TableRow>
+
+    <TableRow android:padding="@dimen/fab_margin">
+    <View
+        android:layout_height="1dip"
+        android:background="#FF909090"
+        android:layout_span="2"/>
+    </TableRow>
+
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="Mortgage Value"
+            android:id="@+id/textView6"
+            android:layout_gravity="center"
+            android:textStyle="bold"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/mortgageValue_textView"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="Houses Cost"
+            android:id="@+id/textView7"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/housesCost_textView" />
+    </TableRow>
+
+    <TableRow android:padding="5dp">
+        <TextView
+            android:text="Hotel Cost"
+            android:id="@+id/textView8"
+            android:layout_gravity="center"/>
+        <TextView
+            android:text="100"
+            android:id="@+id/hotelCost_textView" />
+    </TableRow>
+</TableLayout>
