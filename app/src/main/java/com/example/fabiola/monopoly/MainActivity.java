@@ -50,11 +50,14 @@ public class MainActivity extends Activity implements OnClickListener {
     public void teste(){
         //i = new Intent(this, PlayNowActivity.class);
         //startActivity(i);
-        messsage = textField.getText().toString(); // get the text message on the text field
+
+        messsage = "qudsckjsbvhba";//textField.getText().toString(); // get the text message on the text field
         textField.setText(""); // Reset the text field to blank
 
         try {
-            client = new Socket("127.0.0.1", 4444); // connect to server
+
+            System.out.println("entrei");
+            client = new Socket("192.168.56.1", 4444); // connect to server
             printwriter = new PrintWriter(client.getOutputStream(),
                     true);
             printwriter.write(messsage); // write the message to output stream
@@ -63,8 +66,11 @@ public class MainActivity extends Activity implements OnClickListener {
             client.close(); // closing the connection
 
         } catch (UnknownHostException e) {
+            System.out.println("ecsadvcszlcnhsbcvdscuyv");
             e.printStackTrace();
         } catch (IOException e) {
+
+            System.out.println("ecsadvcszlcnhsbcvdscuyv");
             e.printStackTrace();
         }
     }
@@ -74,7 +80,8 @@ public class MainActivity extends Activity implements OnClickListener {
         Intent i;
         switch (v.getId()){
             case R.id.playNow_button:
-                teste();
+                i = new Intent(this, PlayNowActivity.class);
+                startActivity(i);
                 break;
             case R.id.options_button:
                 i = new Intent(this, OptionsActivity.class);
@@ -84,9 +91,11 @@ public class MainActivity extends Activity implements OnClickListener {
                 i = new Intent(this, HelpActivity.class);
                 startActivity(i);
                 break;
-
             case R.id.exit_button:
                 finish();
+                break;
+            case R.id.login_button:
+                teste();
                 break;
         }
     }
