@@ -9,9 +9,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 
 public class MainActivity extends Activity implements OnClickListener {
+
+    private Socket client;
+    private PrintWriter printwriter;
+    private EditText textField;
+    private Button button;
+    private String messsage;
 
 
     @Override
@@ -34,13 +47,34 @@ public class MainActivity extends Activity implements OnClickListener {
         //---------------------------------------------
     }
 
+    public void teste(){
+        //i = new Intent(this, PlayNowActivity.class);
+        //startActivity(i);
+        messsage = textField.getText().toString(); // get the text message on the text field
+        textField.setText(""); // Reset the text field to blank
+
+        try {
+            client = new Socket("127.0.0.1", 4444); // connect to server
+            printwriter = new PrintWriter(client.getOutputStream(),
+                    true);
+            printwriter.write(messsage); // write the message to output stream
+            printwriter.flush();
+            printwriter.close();
+            client.close(); // closing the connection
+
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         Intent i;
         switch (v.getId()){
             case R.id.playNow_button:
-                i = new Intent(this, PlayNowActivity.class);
-                startActivity(i);
+                teste();
                 break;
             case R.id.options_button:
                 i = new Intent(this, OptionsActivity.class);
