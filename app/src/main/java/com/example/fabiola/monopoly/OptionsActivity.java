@@ -41,7 +41,7 @@ public class OptionsActivity extends Activity implements OnClickListener {
 
     }
 
-    public void teste(View v){
+    public void teste(){
         //i = new Intent(this, PlayNowActivity.class);
         //startActivity(i);
 
@@ -52,21 +52,20 @@ public class OptionsActivity extends Activity implements OnClickListener {
 
         try {
 
-            System.out.println("entrei");
-            client = new Socket("192.168.56.1", 4444); // connect to server
+
+            client = new Socket("172.30.14.230", 4444); // connect to server
             printwriter = new PrintWriter(client.getOutputStream(),
                     true);
             printwriter.write(messsage); // write the message to output stream
             printwriter.flush();
             printwriter.close();
             client.close(); // closing the connection
-
+            System.out.println("entrei");
         } catch (UnknownHostException e) {
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
+            System.out.println("exception 1---------------------");
             e.printStackTrace();
         } catch (IOException e) {
-
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
+            System.out.println("exception 2---------------------");
             e.printStackTrace();
         }
     }
@@ -77,7 +76,7 @@ public class OptionsActivity extends Activity implements OnClickListener {
             finish();
         }
         else if (v.getId() == R.id.saveOptions_button) {
-           teste(v);
+           teste();
         }
         else if (v.getId() == R.id.choosePiece_button) {
             Intent i = new Intent(this, GridViewPiecesActivity.class);
