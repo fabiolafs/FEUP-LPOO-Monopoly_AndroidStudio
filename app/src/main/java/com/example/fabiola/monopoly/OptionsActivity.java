@@ -2,7 +2,10 @@ package com.example.fabiola.monopoly;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -12,8 +15,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -23,6 +29,15 @@ public class OptionsActivity extends Activity implements OnClickListener {
     private EditText textField;
     private Button button;
     private String messsage;
+    private EditText serverIp;
+
+    private Button connectPhones;
+
+    private String serverIpAddress = "10.0.2.2";
+
+    private boolean connected = false;
+
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +68,7 @@ public class OptionsActivity extends Activity implements OnClickListener {
         try {
 
             System.out.println("entrei");
-            client = new Socket("192.168.56.1", 4444); // connect to server
+            client = new Socket("10.0.2.2", 4444); // connect to server
             printwriter = new PrintWriter(client.getOutputStream(),
                     true);
             printwriter.write(messsage); // write the message to output stream
@@ -73,6 +88,13 @@ public class OptionsActivity extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
+        if (!connected) {
+            if (!serverIpAddress.equals("")) {
+                Thread cThread = new Thread(new ClientThread());
+                cThread.start();
+            }
+        }
+
         if (v.getId() == R.id.backOptions_button) {
             finish();
         }
@@ -86,6 +108,47 @@ public class OptionsActivity extends Activity implements OnClickListener {
 
     }
 
+    private OnClickListener connectListener = new OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (!connected) {
+                if (!serverIpAddress.equals("")) {
+                    Thread cThread = new Thread(new ClientThread());
+                    cThread.start();
+                }
+            }
+        }
+    };
+
+    public class ClientThread implements Runnable {
+
+        public void run() {
+            try {
+                InetAddress serverAddr = InetAddress.getByName(serverIpAddress);
+                Log.d("ClientActivity", "C: Connecting...");
+                Socket socket = new Socket("10.0.2.2", 4444);
+                connected = true;
+                while (connected) {
+                    try {
+                        Log.d("ClientActivity", "C: Sending command.");
+                        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket
+                                .getOutputStream())), true);
+                        // WHERE YOU ISSUE THE COMMANDS
+                        out.println("Hey Server!");
+                        Log.d("ClientActivity", "C: Sent.");
+                    } catch (Exception e) {
+                        Log.e("ClientActivity", "S: Error", e);
+                    }
+                }
+                socket.close();
+                Log.d("ClientActivity", "C: Closed.");
+            } catch (Exception e) {
+                Log.e("ClientActivity", "C: Error", e);
+                connected = false;
+            }
+        }
+    }
     public void pieceChossed(){
         //do something
     }
