@@ -20,11 +20,7 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-    private Socket client;
-    private PrintWriter printwriter;
-    private EditText textField;
-    private Button button;
-    private String messsage;
+
 
 
     @Override
@@ -47,33 +43,6 @@ public class MainActivity extends Activity implements OnClickListener {
         //---------------------------------------------
     }
 
-    public void teste(){
-        //i = new Intent(this, PlayNowActivity.class);
-        //startActivity(i);
-
-        messsage = "qudsckjsbvhba";//textField.getText().toString(); // get the text message on the text field
-        textField.setText(""); // Reset the text field to blank
-
-        try {
-
-            System.out.println("entrei");
-            client = new Socket("192.168.56.1", 4444); // connect to server
-            printwriter = new PrintWriter(client.getOutputStream(),
-                    true);
-            printwriter.write(messsage); // write the message to output stream
-            printwriter.flush();
-            printwriter.close();
-            client.close(); // closing the connection
-
-        } catch (UnknownHostException e) {
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
-            e.printStackTrace();
-        } catch (IOException e) {
-
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void onClick(View v) {
@@ -93,9 +62,6 @@ public class MainActivity extends Activity implements OnClickListener {
                 break;
             case R.id.exit_button:
                 finish();
-                break;
-            case R.id.login_button:
-                teste();
                 break;
         }
     }
