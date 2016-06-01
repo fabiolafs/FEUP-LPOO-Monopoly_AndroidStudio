@@ -2,51 +2,36 @@ package com.example.fabiola.monopoly;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
-public class OptionsActivity extends Activity implements OnClickListener {
-    private Socket client;
+public class OptionsActivity extends Activity implements OnClickListener{
+
     private PrintWriter printwriter;
     private EditText textField;
-    private Button button;
-    private String messsage;
-    private EditText serverIp;
+    private String message;
+    private String pieceSelected;
 
-    private Button connectPhones;
-
-    private String serverIpAddress = "10.0.2.2";
-
-    private boolean connected = false;
-
-    private Handler handler = new Handler();
+    TextView response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
+        textField = (EditText) findViewById(R.id.name_editText);
+
         // Set up click listeners for all the buttons
         View saveButton = findViewById(R.id.saveOptions_button);
-        saveButton.setOnClickListener(this);
+        //saveButton.setOnClickListener(this);
 
         View backOptionsButton = findViewById(R.id.backOptions_button);
         backOptionsButton.setOnClickListener(this);
@@ -54,102 +39,41 @@ public class OptionsActivity extends Activity implements OnClickListener {
         View choosePieceButton = findViewById(R.id.choosePiece_button);
         choosePieceButton.setOnClickListener(this);
 
-    }
+        saveButton.setOnClickListener(new OnClickListener() {
 
-    public void teste(View v){
-        //i = new Intent(this, PlayNowActivity.class);
-        //startActivity(i);
+            @Override
+            public void onClick(View arg0) {
+                message = textField.getText().toString(); // get the text message on the text field
 
-        textField = (EditText) findViewById(R.id.name_editText);
+                message+=";";
+                message+=pieceSelected;
 
-        messsage =textField.getText().toString(); // get the text message on the text field
-        textField.setText(""); // Reset the text field to blank
-
-        try {
-
-            System.out.println("entrei");
-            client = new Socket("10.0.2.2", 4444); // connect to server
-            printwriter = new PrintWriter(client.getOutputStream(),
-                    true);
-            printwriter.write(messsage); // write the message to output stream
-            printwriter.flush();
-            printwriter.close();
-            client.close(); // closing the connection
-
-        } catch (UnknownHostException e) {
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
-            e.printStackTrace();
-        } catch (IOException e) {
-
-            System.out.println("ecsadvcszlcnhsbcvdscuyv");
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (!connected) {
-            if (!serverIpAddress.equals("")) {
-                Thread cThread = new Thread(new ClientThread());
-                cThread.start();
+                Client myClient = new Client("10.0.2.2", 4444, message);
+                myClient.execute();
             }
-        }
+        });
+    }
 
+    //@Override
+    public void onClick(View v) {
         if (v.getId() == R.id.backOptions_button) {
             finish();
-        }
-        else if (v.getId() == R.id.saveOptions_button) {
-           teste(v);
-        }
-        else if (v.getId() == R.id.choosePiece_button) {
+        } else if (v.getId() == R.id.saveOptions_button) {
+
+        } else if (v.getId() == R.id.choosePiece_button) {
             Intent i = new Intent(this, GridViewPiecesActivity.class);
-            startActivity(i);
+            startActivityForResult(i,1);
         }
 
     }
 
-    private OnClickListener connectListener = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (!connected) {
-                if (!serverIpAddress.equals("")) {
-                    Thread cThread = new Thread(new ClientThread());
-                    cThread.start();
-                }
-            }
-        }
-    };
-
-    public class ClientThread implements Runnable {
-
-        public void run() {
-            try {
-                InetAddress serverAddr = InetAddress.getByName(serverIpAddress);
-                Log.d("ClientActivity", "C: Connecting...");
-                Socket socket = new Socket("10.0.2.2", 4444);
-                connected = true;
-                while (connected) {
-                    try {
-                        Log.d("ClientActivity", "C: Sending command.");
-                        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket
-                                .getOutputStream())), true);
-                        // WHERE YOU ISSUE THE COMMANDS
-                        out.println("Hey Server!");
-                        Log.d("ClientActivity", "C: Sent.");
-                    } catch (Exception e) {
-                        Log.e("ClientActivity", "S: Error", e);
-                    }
-                }
-                socket.close();
-                Log.d("ClientActivity", "C: Closed.");
-            } catch (Exception e) {
-                Log.e("ClientActivity", "C: Error", e);
-                connected = false;
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                pieceSelected=data.getStringExtra("edittextvalue");
             }
         }
     }
-    public void pieceChossed(){
-        //do something
-    }
+
 }
