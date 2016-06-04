@@ -48,8 +48,7 @@ public class OptionsActivity extends Activity implements OnClickListener{
                 message+=";";
                 message+=pieceSelected;
 
-                Client myClient = new Client("10.0.2.2", 4444, message);
-                myClient.execute();
+                MainActivity.tcpClient.sendMessage(message);
             }
         });
     }
