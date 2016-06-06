@@ -58,4 +58,17 @@ public class ManageListActivity extends Activity {
        });
 
    }
+
+    public void onResume(){
+        super.onResume();
+
+        try {
+            Thread.sleep(1000);
+            MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id) + ";It is my turn?");
+        }
+            catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

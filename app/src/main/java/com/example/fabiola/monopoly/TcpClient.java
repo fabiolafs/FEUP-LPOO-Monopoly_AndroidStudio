@@ -14,7 +14,7 @@ public class TcpClient {
     public static final int SERVER_PORT = 4444;
 
     // message to send to the server
-    private String mServerMessage;
+    public String mServerMessage;
     // sends message received notifications
     private OnMessageReceived mMessageListener = null;
     // while this is true, the server will continue running
@@ -77,7 +77,7 @@ public class TcpClient {
             Log.e("TCP Client", "C: Connecting...");
 
             //create a socket to make the connection with the server
-            Socket socket = new Socket("192.168.1.92", SERVER_PORT);
+            Socket socket = new Socket(SERVER_IP, SERVER_PORT);
 
             try {
                 Log.i("Debug", "inside try catch");

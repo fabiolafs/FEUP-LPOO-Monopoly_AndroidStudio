@@ -13,14 +13,12 @@ import android.widget.TextView;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class OptionsActivity extends Activity implements OnClickListener{
+public class PlayerPropertiesActivity extends Activity implements OnClickListener{
 
     private PrintWriter printwriter;
     private EditText textField;
     private String message;
     private String pieceSelected;
-
-    TextView response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,7 @@ public class OptionsActivity extends Activity implements OnClickListener{
 
             @Override
             public void onClick(View arg0) {
+
                 message = textField.getText().toString(); // get the text message on the text field
 
                 message+=";";
