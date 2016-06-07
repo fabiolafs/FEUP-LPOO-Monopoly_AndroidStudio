@@ -43,24 +43,12 @@
         android:layout_height="55dp"
         android:text="Play Now"
         android:id="@+id/playNow_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
         android:background="@drawable/button_selector"
         android:focusable="false"
         android:singleLine="false"
-        android:textSize="@dimen/abc_dialog_padding_material" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:text="Options"
-        android:id="@+id/options_button"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/playNow_button"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/button_selector"
         android:textSize="@dimen/abc_dialog_padding_material"
-        android:layout_gravity="center_vertical" />
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/help_button" />
 
     <Button
         android:layout_width="200dp"
@@ -68,10 +56,10 @@
         android:text="Help"
         android:id="@+id/help_button"
         android:layout_marginTop="25dp"
-        android:layout_below="@+id/options_button"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_selector"
-        android:textSize="@dimen/abc_dialog_padding_material"/>
+        android:textSize="@dimen/abc_dialog_padding_material"
+        android:layout_below="@+id/playNow_button" />
 
     <Button
         android:layout_width="200dp"

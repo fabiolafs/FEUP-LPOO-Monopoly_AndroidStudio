@@ -1,30 +1,85 @@
 package com.example.fabiola.monopoly;
 
 import android.app.Activity;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class WaitActivity extends Activity {
+
+    Timer timer;
+    MyTimerTask myTimerTask;
+
+    public static WaitActivity instance = null;
+
+    public static boolean active = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait2);
+
+        instance = this;
     }
 
     public void onResume() {
         super.onResume();
 
-        Toast.makeText(this, "Please wait for other players register", Toast.LENGTH_LONG).show();
-
-        while (true) {
-                SystemClock.sleep(7000);
-                MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id) + ";It is my turn?");
-            }
 
 
+        if(timer != null){
+            timer.cancel();
+        }
 
+        timer = new Timer();
+        myTimerTask = new MyTimerTask();
+
+
+        timer.schedule(myTimerTask, 0, 1000);
+        }
+
+    @Override
+    public void finish() {
+        super.finish();
+        instance = null;
+        active = false;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        active = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        active = false;
+    }
+
+class MyTimerTask extends TimerTask {
+
+    @Override
+    public void run() {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(WaitActivity.this, "Please wait your turn", Toast.LENGTH_LONG).show();
+                MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id) + ";Is it my turn?");
+
+            }
+        });
+    }
+}
+
 }

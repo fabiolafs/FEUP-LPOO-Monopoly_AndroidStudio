@@ -8,6 +8,8 @@ import android.view.View.OnClickListener;
 
 public class PlayNowActivity extends Activity implements OnClickListener {
 
+    public static boolean active = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +30,32 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        active = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        active = false;
+    }
+
+    @Override
     public void onClick(View v) {
 
         Intent i;
         switch (v.getId()){
             case R.id.rollDice_button:
-                // do something
+                MainActivity.tcpClient.sendMessage("Playing begins");
+                i = new Intent(this, PlayingActivity.class);
+                startActivity(i);
                 break;
             case R.id.manage_button:
                 i = new Intent(this, ManageListActivity.class);
