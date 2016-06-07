@@ -2,6 +2,8 @@ package com.example.fabiola.monopoly;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,8 +24,11 @@ public class GridViewPiecesActivity extends Activity implements DialogInterface.
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-             //   Toast.makeText(GridViewPiecesActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-            //obter id da peça do jogador
+               Toast.makeText(GridViewPiecesActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent();
+                intent.putExtra("edittextvalue",String.valueOf(position));
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
@@ -32,4 +37,5 @@ public class GridViewPiecesActivity extends Activity implements DialogInterface.
     public void onClick(DialogInterface dialog, int which) {
 
     }
+
 }

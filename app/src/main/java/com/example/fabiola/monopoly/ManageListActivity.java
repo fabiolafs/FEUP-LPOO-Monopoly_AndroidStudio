@@ -16,7 +16,9 @@ import static android.R.layout.simple_list_item_1;
  */
 public class ManageListActivity extends Activity {
 
-   private String myStringArray[] = new String[]{"sei la","outra coisa","mais uma","",""};
+    public static boolean active = false;
+
+    private String myStringArray[] = new String[]{"atlantic_avenue","baltic_avenue","bo_railroad","connecticut_avenue","electric_company"};
 
    public void onCreate(Bundle savedInstanceState){
        super.onCreate(savedInstanceState);
@@ -33,8 +35,10 @@ public class ManageListActivity extends Activity {
 
                String theText = adapter.getItem(position);
 
+               MainActivity.tcpClient.sendMessage(theText);
+
                Intent i = new Intent(getApplicationContext(), ShowPropertyActivity.class);
-               i.putExtra("property_name", theText);
+               //i.putExtra("property_name", theText);
                startActivity(i);
 
                /*
@@ -58,4 +62,30 @@ public class ManageListActivity extends Activity {
        });
 
    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        active = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        active = false;
+    }
+
+    public void onResume(){
+        super.onResume();
+
+        active = true;
+
+    }
+
 }
