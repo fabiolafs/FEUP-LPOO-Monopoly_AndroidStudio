@@ -19,7 +19,8 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
     private PrintWriter printwriter;
     private EditText textField;
     private String message;
-    private String pieceSelected;
+    public static String pieceSelected;
+    public static String namePlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,32 +45,10 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
             public void onClick(View arg0) {
 
                 message = textField.getText().toString(); // get the text message on the text field
-
-                TextView playerName = (TextView) findViewById(R.id.playerName_textView);
-                playerName.setText(message);
+                namePlayer = textField.getText().toString();
 
                 message+=";";
                 message+=pieceSelected;
-
-                ImageView playerPiece = (ImageView) findViewById(R.id.playNowPiece_imageView);
-                switch(pieceSelected){
-                    case "0":
-                        playerPiece.setImageResource(R.drawable.dog);
-                    case "1":
-                        playerPiece.setImageResource(R.drawable.car);
-                    case "2":
-                        playerPiece.setImageResource(R.drawable.ship);
-                    case "3":
-                        playerPiece.setImageResource(R.drawable.boot);
-                    case "4":
-                        playerPiece.setImageResource(R.drawable.hat);
-                    case "5":
-                        playerPiece.setImageResource(R.drawable.iron);
-                    case "6":
-                        playerPiece.setImageResource(R.drawable.thimble);
-                    case "7":
-                        playerPiece.setImageResource(R.drawable.wheelbarrow);
-                }
 
                 MainActivity.tcpClient.sendMessage(message);
             }

@@ -5,15 +5,57 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PlayNowActivity extends Activity implements OnClickListener {
 
     public static boolean active = false;
+    private static String name;
+    private static EditText textField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_now);
+
+        name = PlayerPropertiesActivity.namePlayer;
+
+        TextView playerName = (TextView) findViewById(R.id.playerName_textView);
+        playerName.setText(name);
+
+        ImageView playerPiece = (ImageView) findViewById(R.id.playNowPiece_imageView);
+
+        switch(PlayerPropertiesActivity.pieceSelected) {
+            case "0":
+                playerPiece.setImageResource(R.drawable.dog);
+                break;
+            case "1":
+                playerPiece.setImageResource(R.drawable.car);
+                break;
+            case "2":
+                playerPiece.setImageResource(R.drawable.ship);
+                break;
+            case "3":
+                playerPiece.setImageResource(R.drawable.boot);
+                break;
+            case "4":
+                playerPiece.setImageResource(R.drawable.hat);
+                break;
+            case "5":
+                playerPiece.setImageResource(R.drawable.iron);
+                break;
+            case "6":
+                playerPiece.setImageResource(R.drawable.thimble);
+                break;
+            case "7":
+                playerPiece.setImageResource(R.drawable.wheelbarrow);
+                break;
+        }
+
+        TextView playerBalance = (TextView) findViewById(R.id.money_textView);
+        playerBalance.setText(SettingsActivity.initialBalance);
 
         // Set up click listeners for all the buttons
         View rollDice = findViewById(R.id.rollDice_button);

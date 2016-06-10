@@ -16,7 +16,7 @@ public class SettingsActivity extends Activity {
     private String array_spinner[];
     private String array_spinner2[];
     private String numPlayers;
-    private String initialBalance;
+    public static String initialBalance;
     private Spinner spinner1;
     private Spinner spinner2;
 
@@ -64,9 +64,6 @@ public class SettingsActivity extends Activity {
                 initialBalance = spinner2.getSelectedItem().toString();
 
                 String message = numPlayers + ";" + initialBalance;
-
-                TextView playerBalance = (TextView) findViewById(R.id.money_textView);
-                playerBalance.setText(initialBalance);
 
                 MainActivity.tcpClient.sendMessage(message);
             }
