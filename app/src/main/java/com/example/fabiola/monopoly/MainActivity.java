@@ -173,7 +173,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     startActivity(i);
                     break;
                 case "It is your turn":
-                    if(PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active){
+                    if(PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active){
                         break;
                     }
                     else {
