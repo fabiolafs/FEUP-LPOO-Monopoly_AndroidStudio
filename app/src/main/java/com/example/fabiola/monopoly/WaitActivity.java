@@ -34,7 +34,7 @@ public class WaitActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 1000);
+        timer.schedule(myTimerTask, 0, 500);
         }
 
     @Override
