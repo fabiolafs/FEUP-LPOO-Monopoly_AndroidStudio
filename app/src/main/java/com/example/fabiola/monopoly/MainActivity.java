@@ -121,7 +121,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
                 }
             });
-            tcpClient.run();
+
+                tcpClient.run();
 
             return null;
         }
