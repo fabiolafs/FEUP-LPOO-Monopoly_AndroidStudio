@@ -181,8 +181,6 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
-                case "It is not your turn":
-                    break;
                 case "1":
                     PlayingActivity.setImage("1");
                     break;
@@ -268,9 +266,14 @@ public class MainActivity extends Activity implements OnClickListener {
                     PlayingActivity.setImage("39");
                     break;
                 case "Do you want to buy this property?":
-                    i = new Intent(getApplicationContext(), BuyingActivity.class);
-                    startActivity(i);
-                    break;
+                    if(PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active){
+                        break;
+                    }
+                    else {
+                        i = new Intent(getApplicationContext(), BuyingActivity.class);
+                        startActivity(i);
+                        break;
+                    }
             }
 
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
