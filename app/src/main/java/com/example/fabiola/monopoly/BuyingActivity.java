@@ -71,6 +71,8 @@ public class BuyingActivity extends Activity {
     public void onResume() {
         super.onResume();
 
+        active = true;
+
         ImageView imageView = (ImageView) findViewById(R.id.imageView2);
         setCurrentImage(currImage);
 
