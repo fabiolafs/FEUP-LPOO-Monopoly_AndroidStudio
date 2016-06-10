@@ -265,7 +265,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     PlayingActivity.setImage("39");
                     break;
                 case "Do you want to buy this property?":
-                    if(PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active){
+                    if(PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active){
                         break;
                     }
                     else {
