@@ -46,7 +46,7 @@ public class PlayingActivity extends Activity {
     public void onResume() {
         super.onResume();
 
-
+        active = true;
 
         if(timer != null){
             timer.cancel();
