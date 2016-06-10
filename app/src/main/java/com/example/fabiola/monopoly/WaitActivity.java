@@ -13,16 +13,12 @@ public class WaitActivity extends Activity {
     Timer timer;
     MyTimerTask myTimerTask;
 
-    public static WaitActivity instance = null;
-
     public static boolean active = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait2);
-
-        instance = this;
     }
 
     public void onResume() {
@@ -44,7 +40,6 @@ public class WaitActivity extends Activity {
     @Override
     public void finish() {
         super.finish();
-        instance = null;
         active = false;
     }
 
