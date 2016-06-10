@@ -182,92 +182,89 @@ public class MainActivity extends Activity implements OnClickListener {
                     }
                 case "It is not your turn":
                     break;
-                case "atlantic_avenue":
-                    PlayingActivity.setImage("atlantic_avenue");
-                    break;
                 case "1":
-                    PlayingActivity.setImage("mediterranean_avenue");
+                    PlayingActivity.setImage("1");
                     break;
                 case "3":
-                    PlayingActivity.setImage("baltic_avenue");
+                    PlayingActivity.setImage("3");
                     break;
                 case "5":
-                    PlayingActivity.setImage("reading_railroad");
+                    PlayingActivity.setImage("5");
                     break;
                 case "6":
-                    PlayingActivity.setImage("oriental_avenue");
+                    PlayingActivity.setImage("6");
                     break;
                 case "8":
-                    PlayingActivity.setImage("vermont_avenue");
+                    PlayingActivity.setImage("8");
                     break;
                 case "9":
-                    PlayingActivity.setImage("connecticut_avenue");
+                    PlayingActivity.setImage("9");
                     break;
                 case "11":
-                    PlayingActivity.setImage("st_charles_place");
+                    PlayingActivity.setImage("11");
                     break;
                 case "12":
-                    PlayingActivity.setImage("electric_company");
+                    PlayingActivity.setImage("12");
                     break;
                 case "13":
-                    PlayingActivity.setImage("states_avenue");
+                    PlayingActivity.setImage("13");
                     break;
                 case "14":
-                    PlayingActivity.setImage("virginia_avenue");
+                    PlayingActivity.setImage("14");
                     break;
                 case "15":
-                    PlayingActivity.setImage("pennsylvania_railroad");
+                    PlayingActivity.setImage("15");
                     break;
                 case "16":
-                    PlayingActivity.setImage("st_james_place");
+                    PlayingActivity.setImage("16");
                     break;
                 case "18":
-                    PlayingActivity.setImage("tennesse_avenue");
+                    PlayingActivity.setImage("18");
                     break;
                 case "19":
-                    PlayingActivity.setImage("new_york_avenue");
+                    PlayingActivity.setImage("19");
                     break;
                 case "21":
-                    PlayingActivity.setImage("kentucky_avenue");
+                    PlayingActivity.setImage("21");
                     break;
                 case "23":
-                    PlayingActivity.setImage("indiana_avenue");
+                    PlayingActivity.setImage("23");
                     break;
                 case "24":
-                    PlayingActivity.setImage("illinois_avenue");
+                    PlayingActivity.setImage("24");
                     break;
                 case "25":
-                    PlayingActivity.setImage("bo_railroad");
+                    PlayingActivity.setImage("25");
                     break;
                 case "26":
-                    PlayingActivity.setImage("atlantic_avenue");
+                    PlayingActivity.setImage("26");
                     break;
                 case "27":
-                    PlayingActivity.setImage("ventnor_avenue");
+                    PlayingActivity.setImage("27");
                     break;
                 case "28":
-                    PlayingActivity.setImage("water_works");
+                    PlayingActivity.setImage("28");
                     break;
                 case "29":
-                    PlayingActivity.setImage("marvin_gardens");
+                    PlayingActivity.setImage("29");
                     break;
                 case "31":
-                    PlayingActivity.setImage("pacific_avenue");
+                    PlayingActivity.setImage("31");
                     break;
                 case "32":
-                    PlayingActivity.setImage("north_carolina_avenue");
+                    PlayingActivity.setImage("32");
                     break;
                 case "34":
-                    PlayingActivity.setImage("pennsylvania_avenue");
+                    PlayingActivity.setImage("34");
                     break;
                 case "35":
-                    PlayingActivity.setImage("short_line_railroad");
+                    PlayingActivity.setImage("35");
                     break;
                 case "37":
-                    PlayingActivity.setImage("park_place");
+                    PlayingActivity.setImage("37");
                     break;
                 case "39":
-                    PlayingActivity.setImage("board_walk");
+                    PlayingActivity.setImage("39");
                     break;
                 case "Do you want to buy this property?":
                     i = new Intent(getApplicationContext(), BuyingActivity.class);
