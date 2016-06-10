@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.PrintWriter;
@@ -44,8 +45,31 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
 
                 message = textField.getText().toString(); // get the text message on the text field
 
+                TextView playerName = (TextView) findViewById(R.id.playerName_textView);
+                playerName.setText(message);
+
                 message+=";";
                 message+=pieceSelected;
+
+                ImageView playerPiece = (ImageView) findViewById(R.id.playNowPiece_imageView);
+                switch(pieceSelected){
+                    case "0":
+                        playerPiece.setImageResource(R.drawable.dog);
+                    case "1":
+                        playerPiece.setImageResource(R.drawable.car);
+                    case "2":
+                        playerPiece.setImageResource(R.drawable.ship);
+                    case "3":
+                        playerPiece.setImageResource(R.drawable.boot);
+                    case "4":
+                        playerPiece.setImageResource(R.drawable.hat);
+                    case "5":
+                        playerPiece.setImageResource(R.drawable.iron);
+                    case "6":
+                        playerPiece.setImageResource(R.drawable.thimble);
+                    case "7":
+                        playerPiece.setImageResource(R.drawable.wheelbarrow);
+                }
 
                 MainActivity.tcpClient.sendMessage(message);
             }

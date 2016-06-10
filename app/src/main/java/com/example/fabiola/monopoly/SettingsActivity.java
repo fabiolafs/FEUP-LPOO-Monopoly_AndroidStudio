@@ -3,10 +3,12 @@ package com.example.fabiola.monopoly;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
@@ -62,6 +64,9 @@ public class SettingsActivity extends Activity {
                 initialBalance = spinner2.getSelectedItem().toString();
 
                 String message = numPlayers + ";" + initialBalance;
+
+                TextView playerBalance = (TextView) findViewById(R.id.money_textView);
+                playerBalance.setText(initialBalance);
 
                 MainActivity.tcpClient.sendMessage(message);
             }
