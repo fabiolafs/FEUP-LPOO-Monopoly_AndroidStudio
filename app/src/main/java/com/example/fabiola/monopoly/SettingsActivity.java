@@ -3,10 +3,12 @@ package com.example.fabiola.monopoly;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity {
@@ -14,7 +16,7 @@ public class SettingsActivity extends Activity {
     private String array_spinner[];
     private String array_spinner2[];
     private String numPlayers;
-    private String initialBalance;
+    public static String initialBalance;
     private Spinner spinner1;
     private Spinner spinner2;
 

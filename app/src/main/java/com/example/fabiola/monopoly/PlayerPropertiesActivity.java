@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.PrintWriter;
@@ -18,7 +19,8 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
     private PrintWriter printwriter;
     private EditText textField;
     private String message;
-    private String pieceSelected;
+    public static String pieceSelected;
+    public static String namePlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
             public void onClick(View arg0) {
 
                 message = textField.getText().toString(); // get the text message on the text field
+                namePlayer = textField.getText().toString();
 
                 message+=";";
                 message+=pieceSelected;
