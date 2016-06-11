@@ -23,14 +23,16 @@ public class BuyingActivity extends Activity {
 
         currImage =PlayingActivity.currImage;
 
+        MainActivity.tcpClient.sendMessage("BuyingActivty");
+
         View yesbutton = findViewById(R.id.button3);
         yesbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 MainActivity.tcpClient.sendMessage("Yes");
-                Intent i = new Intent(getApplicationContext(), WaitActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(), WaitActivity.class);
+                startActivity(i);*/
             }
 
         });
@@ -41,8 +43,8 @@ public class BuyingActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 MainActivity.tcpClient.sendMessage("No");
-                Intent i = new Intent(getApplicationContext(), WaitActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(), WaitActivity.class);
+                startActivity(i);*/
             }
 
         });

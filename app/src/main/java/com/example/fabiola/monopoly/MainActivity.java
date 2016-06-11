@@ -134,6 +134,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "Yes, you could set game properties":
                     Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Another player defining the game properties. Please wait.":
                     Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
@@ -141,11 +142,13 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "Game properties set correctly!":
                     i = new Intent(getApplicationContext(), PlayerPropertiesActivity.class);
                     startActivity(i);
+                    finish();
                     //Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
                     break;
                 case "Yes, you could set player properties":
                     i = new Intent(getApplicationContext(), PlayerPropertiesActivity.class);
                     startActivity(i);
+                    finish();
                     //Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
                     break;
                 case "That piece symbol already been choose! Please choose another piece.":
@@ -155,31 +158,79 @@ public class MainActivity extends Activity implements OnClickListener {
                     id = 1;
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Your ID is 2":
                     id = 2;
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Your ID is 3":
                     id = 3;
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Your ID is 4":
                     id = 4;
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
-                case "It is your turn":
-                    if(PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active){
-                        break;
+                case "1;It is your turn":
+                    if(id==1) {
+                        if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
+                            break;
+                        } else {
+                            i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
                     }
-                    else {
-                        i = new Intent(getApplicationContext(), PlayNowActivity.class);
-                        startActivity(i);
-                        break;
+                case "2;It is your turn":
+                    if(id==2) {
+                        if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
+                            break;
+                        } else {
+                            i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
                     }
+                case "3;It is your turn":
+                    if(id==3) {
+                        if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
+                            break;
+                        } else {
+                            i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
+                    }
+                case "4;It is your turn":
+                    if(id==4) {
+                        if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
+                            break;
+                        } else {
+                            i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
+                    }
+                case "It is not your turn":
+                        if (WaitActivity.active) {
+                            break;
+                        } else {
+                            i = new Intent(getApplicationContext(), WaitActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
                 case "0":
                     PlayingActivity.setImage("0");
                     break;
@@ -301,22 +352,26 @@ public class MainActivity extends Activity implements OnClickListener {
                     if(PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active){
                         break;
                     }
-                    else {
+                    else if(PlayingActivity.active){
                         i = new Intent(getApplicationContext(), BuyingActivity.class);
                         startActivity(i);
+                        finish();
                         break;
                     }
                 case "Bought":
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Not Bought":
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
                 case "Next Player":
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
+                    finish();
                     break;
             }
 
