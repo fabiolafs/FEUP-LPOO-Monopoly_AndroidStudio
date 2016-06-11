@@ -185,7 +185,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
                             startActivity(i);
-                            finish();
+                            WaitActivity.fw.finish();
                             break;
                         }
                     }
@@ -196,7 +196,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
                             startActivity(i);
-                            finish();
+                            WaitActivity.fw.finish();
                             break;
                         }
                     }
@@ -207,7 +207,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
                             startActivity(i);
-                            finish();
+                            WaitActivity.fw.finish();
                             break;
                         }
                     }
@@ -218,7 +218,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
                             startActivity(i);
-                            finish();
+                            WaitActivity.fw.finish();
                             break;
                         }
                     }
@@ -228,7 +228,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         } else {
                             i = new Intent(getApplicationContext(), WaitActivity.class);
                             startActivity(i);
-                            finish();
+                            PlayingActivity.fa.finish();
                             break;
                         }
                 case "0":
