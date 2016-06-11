@@ -117,8 +117,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
             case R.id.rollDice_button:
                 MainActivity.tcpClient.sendMessage("Playing begins");
                 i = new Intent(this, PlayingActivity.class);
+                PlayNowActivity.fpn.finish();
                 startActivity(i);
-                this.finish();
                 break;
             case R.id.manage_button:
                 i = new Intent(this, ManageListActivity.class);

@@ -184,8 +184,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
-                            startActivity(i);
                             WaitActivity.fw.finish();
+                            startActivity(i);
                             break;
                         }
                     }
@@ -195,8 +195,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
-                            startActivity(i);
                             WaitActivity.fw.finish();
+                            startActivity(i);
                             break;
                         }
                     }
@@ -206,8 +206,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
-                            startActivity(i);
                             WaitActivity.fw.finish();
+                            startActivity(i);
                             break;
                         }
                     }
@@ -217,8 +217,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), PlayNowActivity.class);
-                            startActivity(i);
                             WaitActivity.fw.finish();
+                            startActivity(i);
                             break;
                         }
                     }
@@ -227,8 +227,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), WaitActivity.class);
-                            startActivity(i);
                             PlayingActivity.fa.finish();
+                            startActivity(i);
                             break;
                         }
                 case "0":
@@ -357,8 +357,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else if (PlayingActivity.active) {
                             i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            PlayingActivity.fa.finish();
                             startActivity(i);
-                            finish();
                             break;
                         }
                     }
@@ -368,8 +368,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else if (PlayingActivity.active) {
                             i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            PlayingActivity.fa.finish();
                             startActivity(i);
-                            finish();
                             break;
                         }
                     }
@@ -379,8 +379,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else if (PlayingActivity.active) {
                             i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            PlayingActivity.fa.finish();
                             startActivity(i);
-                            finish();
                             break;
                         }
                     }
@@ -390,8 +390,8 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         } else if (PlayingActivity.active) {
                             i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            PlayingActivity.fa.finish();
                             startActivity(i);
-                            finish();
                             break;
                         }
                     }
@@ -401,8 +401,8 @@ public class MainActivity extends Activity implements OnClickListener {
                     }
                     else {
                         i = new Intent(getApplicationContext(), WaitActivity.class);
+                        PlayingActivity.fa.finish();
                         startActivity(i);
-                        finish();
                         break;
                     }
                 case "Not Bought":
@@ -411,8 +411,8 @@ public class MainActivity extends Activity implements OnClickListener {
                     }
                     else {
                         i = new Intent(getApplicationContext(), WaitActivity.class);
+                        PlayingActivity.fa.finish();
                         startActivity(i);
-                        finish();
                         break;
                     }
                 case "Next Player":
@@ -421,8 +421,8 @@ public class MainActivity extends Activity implements OnClickListener {
                     }
                     else {
                         i = new Intent(getApplicationContext(), WaitActivity.class);
+                        PlayingActivity.fa.finish();
                         startActivity(i);
-                        finish();
                         break;
                     }
             }
