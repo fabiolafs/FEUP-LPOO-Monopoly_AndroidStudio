@@ -345,6 +345,9 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "37":
                     PlayingActivity.setImage("37");
                     break;
+                case "38":
+                    PlayingActivity.setImage("38");
+                    break;
                 case "39":
                     PlayingActivity.setImage("39");
                     break;
