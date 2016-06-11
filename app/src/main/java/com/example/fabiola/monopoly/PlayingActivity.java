@@ -27,6 +27,8 @@ public class PlayingActivity extends Activity {
         //setImageRotateListener();
 
         fa = this;
+
+        WaitActivity.fw.finish();
     }
 
     @Override
@@ -49,6 +51,8 @@ public class PlayingActivity extends Activity {
 
     public void onResume() {
         super.onResume();
+
+        WaitActivity.fw.finish();
 
         active = true;
 
