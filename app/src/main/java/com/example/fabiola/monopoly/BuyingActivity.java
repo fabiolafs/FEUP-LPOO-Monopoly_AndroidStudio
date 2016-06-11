@@ -23,7 +23,50 @@ public class BuyingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buying);
 
+        currImage = PlayingActivity.currImage;
+
+        PlayingActivity.fa.finish();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        active = true;
+        PlayingActivity.fa.finish();
+
         currImage =PlayingActivity.currImage;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        active = false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        active = false;
+    }
+
+    public void onResume() {
+        super.onResume();
+
+        PlayingActivity.fa.finish();
+
+        active = true;
+
+        currImage =PlayingActivity.currImage;
+
+        if(timer != null){
+            timer.cancel();
+        }
+
+        timer = new Timer();
+        myTimerTask = new MyTimerTask();
+
+
+        timer.schedule(myTimerTask, 0, 100);
 
         MainActivity.tcpClient.sendMessage("BuyingActivty");
 
@@ -50,44 +93,7 @@ public class BuyingActivity extends Activity {
             }
 
         });
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        active = true;
-
-        currImage =PlayingActivity.currImage;
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        active = false;
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        active = false;
-    }
-
-    public void onResume() {
-        super.onResume();
-
-        active = true;
-
-        currImage =PlayingActivity.currImage;
-
-        if(timer != null){
-            timer.cancel();
-        }
-
-        timer = new Timer();
-        myTimerTask = new MyTimerTask();
-
-
-        timer.schedule(myTimerTask, 0, 100);
     }
 
     class MyTimerTask extends TimerTask {

@@ -393,20 +393,35 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "Bought":
-                    i = new Intent(getApplicationContext(), WaitActivity.class);
-                    startActivity(i);
-                    finish();
-                    break;
+                    if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || WaitActivity.active){
+                        break;
+                    }
+                    else {
+                        i = new Intent(getApplicationContext(), WaitActivity.class);
+                        startActivity(i);
+                        finish();
+                        break;
+                    }
                 case "Not Bought":
-                    i = new Intent(getApplicationContext(), WaitActivity.class);
-                    startActivity(i);
-                    finish();
-                    break;
+                    if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || WaitActivity.active){
+                        break;
+                    }
+                    else {
+                        i = new Intent(getApplicationContext(), WaitActivity.class);
+                        startActivity(i);
+                        finish();
+                        break;
+                    }
                 case "Next Player":
-                    i = new Intent(getApplicationContext(), WaitActivity.class);
-                    startActivity(i);
-                    finish();
-                    break;
+                    if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || WaitActivity.active){
+                        break;
+                    }
+                    else {
+                        i = new Intent(getApplicationContext(), WaitActivity.class);
+                        startActivity(i);
+                        finish();
+                        break;
+                    }
             }
 
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);

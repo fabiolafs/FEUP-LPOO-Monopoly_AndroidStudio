@@ -13,6 +13,8 @@ public class PlayingActivity extends Activity {
 
     public static String currImage="";
 
+    public static Activity fa;
+
     Timer timer;
     MyTimerTask myTimerTask;
 
@@ -23,6 +25,8 @@ public class PlayingActivity extends Activity {
 
         //setCurrentImage();
         //setImageRotateListener();
+
+        fa = this;
     }
 
     @Override
@@ -56,7 +60,7 @@ public class PlayingActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 500);
+        timer.schedule(myTimerTask, 0, 400);
     }
 
     class MyTimerTask extends TimerTask {
@@ -70,7 +74,8 @@ public class PlayingActivity extends Activity {
                 public void run() {
 
                     setCurrentImage(currImage);
-                    MainActivity.tcpClient.sendMessage("Which picture may I show?");
+
+                    MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id)+";Which picture may I show?");
                 }});
         }
     }
