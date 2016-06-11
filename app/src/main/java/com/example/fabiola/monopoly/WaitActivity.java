@@ -13,12 +13,16 @@ public class WaitActivity extends Activity {
     Timer timer;
     MyTimerTask myTimerTask;
 
+    public static Activity fw;
+
     public static boolean active = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait2);
+
+        fw = this;
 
         if(PlayingActivity.active)
         PlayingActivity.fa.finish();
