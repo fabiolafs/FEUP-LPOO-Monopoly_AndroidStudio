@@ -25,6 +25,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
 
         fpn = this;
 
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
+
         name = PlayerPropertiesActivity.namePlayer;
 
         TextView playerName = (TextView) findViewById(R.id.playerName_textView);
@@ -80,6 +83,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     public void onStart() {
         super.onStart();
         active = true;
+
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
     }
 
     @Override
@@ -98,6 +104,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     public void onResume() {
         super.onResume();
         active = true;
+
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
     }
 
     @Override
@@ -108,8 +117,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
             case R.id.rollDice_button:
                 MainActivity.tcpClient.sendMessage("Playing begins");
                 i = new Intent(this, PlayingActivity.class);
+                PlayNowActivity.fpn.finish();
                 startActivity(i);
-                this.finish();
                 break;
             case R.id.manage_button:
                 i = new Intent(this, ManageListActivity.class);

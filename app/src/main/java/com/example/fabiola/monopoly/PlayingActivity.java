@@ -36,6 +36,9 @@ public class PlayingActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+
+        WaitActivity.fw.finish();
+        PlayNowActivity.fpn.finish();
     }
 
     @Override
@@ -66,7 +69,7 @@ public class PlayingActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 400);
+        timer.schedule(myTimerTask, 0, 500);
     }
 
     class MyTimerTask extends TimerTask {

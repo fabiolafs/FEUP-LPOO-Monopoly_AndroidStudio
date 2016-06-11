@@ -70,7 +70,7 @@ public class BuyingActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 100);
+        timer.schedule(myTimerTask, 0, 500);
 
         MainActivity.tcpClient.sendMessage("BuyingActivty");
 
