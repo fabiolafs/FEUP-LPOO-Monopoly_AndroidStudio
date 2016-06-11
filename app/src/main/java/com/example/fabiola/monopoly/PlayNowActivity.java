@@ -25,6 +25,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
 
         fpn = this;
 
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
+
         name = PlayerPropertiesActivity.namePlayer;
 
         TextView playerName = (TextView) findViewById(R.id.playerName_textView);
@@ -80,6 +83,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     public void onStart() {
         super.onStart();
         active = true;
+
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
     }
 
     @Override
@@ -98,6 +104,9 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     public void onResume() {
         super.onResume();
         active = true;
+
+        if(WaitActivity.active)
+            WaitActivity.fw.finish();
     }
 
     @Override

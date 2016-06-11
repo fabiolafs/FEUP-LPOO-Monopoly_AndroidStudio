@@ -36,6 +36,9 @@ public class PlayingActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+
+        WaitActivity.fw.finish();
+        PlayNowActivity.fpn.finish();
     }
 
     @Override
