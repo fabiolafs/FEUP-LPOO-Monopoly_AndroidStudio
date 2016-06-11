@@ -306,6 +306,14 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
+                case "Bought":
+                    i = new Intent(getApplicationContext(), WaitActivity.class);
+                    startActivity(i);
+                    break;
+                case "Not Bought":
+                    i = new Intent(getApplicationContext(), WaitActivity.class);
+                    startActivity(i);
+                    break;
             }
 
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
