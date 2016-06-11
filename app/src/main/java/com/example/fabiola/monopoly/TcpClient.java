@@ -10,7 +10,7 @@ import java.net.*;
  */
 public class TcpClient {
 
-    public static final String SERVER_IP = "172.30.14.230"; // computer IP address
+    public static final String SERVER_IP = "10.0.2.2"; // computer IP address
     public static final int SERVER_PORT = 4444;
 
     // message to send to the server

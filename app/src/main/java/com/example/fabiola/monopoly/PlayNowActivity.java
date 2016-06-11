@@ -90,6 +90,12 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        active = true;
+    }
+
+    @Override
     public void onClick(View v) {
 
         Intent i;
@@ -98,10 +104,12 @@ public class PlayNowActivity extends Activity implements OnClickListener {
                 MainActivity.tcpClient.sendMessage("Playing begins");
                 i = new Intent(this, PlayingActivity.class);
                 startActivity(i);
+                this.finish();
                 break;
             case R.id.manage_button:
                 i = new Intent(this, ManageListActivity.class);
                 startActivity(i);
+                this.finish();
                 break;
             case R.id.trade_button:
                 // do something

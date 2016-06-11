@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class BuyingActivity extends Activity {
 
@@ -15,6 +16,7 @@ public class BuyingActivity extends Activity {
     public static String currImage;
 
     Timer timer;
+    MyTimerTask myTimerTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +25,16 @@ public class BuyingActivity extends Activity {
 
         currImage =PlayingActivity.currImage;
 
+        MainActivity.tcpClient.sendMessage("BuyingActivty");
+
         View yesbutton = findViewById(R.id.button3);
         yesbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 MainActivity.tcpClient.sendMessage("Yes");
-                Intent i = new Intent(getApplicationContext(), WaitActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(), WaitActivity.class);
+                startActivity(i);*/
             }
 
         });
@@ -41,8 +45,8 @@ public class BuyingActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 MainActivity.tcpClient.sendMessage("No");
-                Intent i = new Intent(getApplicationContext(), WaitActivity.class);
-                startActivity(i);
+                /*Intent i = new Intent(getApplicationContext(), WaitActivity.class);
+                startActivity(i);*/
             }
 
         });
@@ -52,6 +56,8 @@ public class BuyingActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+
+        currImage =PlayingActivity.currImage;
     }
 
     @Override
@@ -71,10 +77,36 @@ public class BuyingActivity extends Activity {
 
         active = true;
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        setCurrentImage(currImage);
+        currImage =PlayingActivity.currImage;
 
+        if(timer != null){
+            timer.cancel();
+        }
+
+        timer = new Timer();
+        myTimerTask = new MyTimerTask();
+
+
+        timer.schedule(myTimerTask, 0, 100);
     }
+
+    class MyTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+
+            //Toast.makeText(WaitActivity.this, "Please wait for other players register", Toast.LENGTH_LONG).show();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    currImage =PlayingActivity.currImage;
+                    setCurrentImage(currImage);
+
+                }});
+        }
+    }
+
 
     private void setCurrentImage(String image) {
 

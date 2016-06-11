@@ -56,7 +56,7 @@ public class PlayingActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 500);
+        timer.schedule(myTimerTask, 0, 200);
     }
 
     class MyTimerTask extends TimerTask {
