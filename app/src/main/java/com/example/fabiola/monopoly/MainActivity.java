@@ -348,15 +348,49 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "39":
                     PlayingActivity.setImage("39");
                     break;
-                case "Do you want to buy this property?":
-                    if(PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active){
-                        break;
+                case "1;Do you want to buy this property?":
+                    if(id==1) {
+                        if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
+                            break;
+                        } else if (PlayingActivity.active) {
+                            i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
                     }
-                    else if(PlayingActivity.active){
-                        i = new Intent(getApplicationContext(), BuyingActivity.class);
-                        startActivity(i);
-                        finish();
-                        break;
+                case "2;Do you want to buy this property?":
+                    if(id==2) {
+                        if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
+                            break;
+                        } else if (PlayingActivity.active) {
+                            i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
+                    }
+                case "3;Do you want to buy this property?":
+                    if(id==3) {
+                        if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
+                            break;
+                        } else if (PlayingActivity.active) {
+                            i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
+                    }
+                case "4;Do you want to buy this property?":
+                    if(id==4) {
+                        if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
+                            break;
+                        } else if (PlayingActivity.active) {
+                            i = new Intent(getApplicationContext(), BuyingActivity.class);
+                            startActivity(i);
+                            finish();
+                            break;
+                        }
                     }
                 case "Bought":
                     i = new Intent(getApplicationContext(), WaitActivity.class);
