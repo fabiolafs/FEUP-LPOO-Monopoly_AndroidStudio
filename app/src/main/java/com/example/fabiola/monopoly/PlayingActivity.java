@@ -29,6 +29,7 @@ public class PlayingActivity extends Activity {
         fa = this;
 
         WaitActivity.fw.finish();
+        PlayNowActivity.fpn.finish();
     }
 
     @Override
@@ -53,6 +54,7 @@ public class PlayingActivity extends Activity {
         super.onResume();
 
         WaitActivity.fw.finish();
+        PlayNowActivity.fpn.finish();
 
         active = true;
 
