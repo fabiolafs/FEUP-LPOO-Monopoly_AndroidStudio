@@ -223,7 +223,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "It is not your turn":
-                        if (WaitActivity.active) {
+                        if (PlayNowActivity.active || WaitActivity.active) {
                             break;
                         } else {
                             i = new Intent(getApplicationContext(), WaitActivity.class);
