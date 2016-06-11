@@ -80,9 +80,6 @@ public class BuyingActivity extends Activity {
 
         final ImageView imageView = (ImageView) findViewById(R.id.imageView2);
         switch (image){
-            case "0":
-                imageView.setImageResource(R.drawable.gobox);
-                break;
             case "1":
                 imageView.setImageResource(R.drawable.mediterranean_avenue);
                 break;
