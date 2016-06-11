@@ -97,7 +97,7 @@ public class PlayingActivity extends Activity {
                 imageView.setImageResource(R.drawable.mediterranean_avenue);
                 break;
             case "2":
-                imageView.setImageResource(R.drawable.chance2);
+                imageView.setImageResource(R.drawable.community_chest);
                 break;
             case "3":
                 imageView.setImageResource(R.drawable.baltic_avenue);
