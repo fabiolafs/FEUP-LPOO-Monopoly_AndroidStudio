@@ -25,7 +25,10 @@ public class WaitActivity extends Activity {
         fw = this;
 
         if(PlayingActivity.active)
-        PlayingActivity.fa.finish();
+            PlayingActivity.fa.finish();
+
+        if(PlayNowActivity.active)
+            PlayNowActivity.fpn.finish();
 
     }
 
@@ -33,8 +36,10 @@ public class WaitActivity extends Activity {
         super.onResume();
 
         if(PlayingActivity.active)
-        PlayingActivity.fa.finish();
+            PlayingActivity.fa.finish();
 
+        if(PlayNowActivity.active)
+            PlayNowActivity.fpn.finish();
 
         if(timer != null){
             timer.cancel();

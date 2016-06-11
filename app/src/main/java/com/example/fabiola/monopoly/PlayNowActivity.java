@@ -15,10 +15,15 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     private static String name;
     private static EditText textField;
 
+    public static Activity fpn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_now);
+
+        fpn = this;
 
         name = PlayerPropertiesActivity.namePlayer;
 
