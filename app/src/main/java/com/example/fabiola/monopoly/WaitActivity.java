@@ -19,11 +19,17 @@ public class WaitActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait2);
+
+        if(PlayingActivity.active)
+        PlayingActivity.fa.finish();
+
     }
 
     public void onResume() {
         super.onResume();
 
+        if(PlayingActivity.active)
+        PlayingActivity.fa.finish();
 
 
         if(timer != null){
