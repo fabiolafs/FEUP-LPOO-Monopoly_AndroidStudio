@@ -314,6 +314,10 @@ public class MainActivity extends Activity implements OnClickListener {
                     i = new Intent(getApplicationContext(), WaitActivity.class);
                     startActivity(i);
                     break;
+                case "Next Player":
+                    i = new Intent(getApplicationContext(), WaitActivity.class);
+                    startActivity(i);
+                    break;
             }
 
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
