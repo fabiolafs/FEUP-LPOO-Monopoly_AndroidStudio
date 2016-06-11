@@ -15,6 +15,8 @@ public class BuyingActivity extends Activity {
 
     public static String currImage;
 
+    public static Activity fb;
+
     Timer timer;
     MyTimerTask myTimerTask;
 
@@ -22,6 +24,8 @@ public class BuyingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buying);
+
+        fb=this;
 
         currImage = PlayingActivity.currImage;
 

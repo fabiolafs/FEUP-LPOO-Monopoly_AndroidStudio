@@ -30,6 +30,9 @@ public class WaitActivity extends Activity {
         if(PlayNowActivity.active)
             PlayNowActivity.fpn.finish();
 
+        if(BuyingActivity.active)
+            BuyingActivity.fb.finish();
+
     }
 
     public void onResume() {
@@ -40,6 +43,9 @@ public class WaitActivity extends Activity {
 
         if(PlayNowActivity.active)
             PlayNowActivity.fpn.finish();
+
+        if(BuyingActivity.active)
+            BuyingActivity.fb.finish();
 
         if(timer != null){
             timer.cancel();
@@ -62,6 +68,16 @@ public class WaitActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+
+        if(PlayingActivity.active)
+            PlayingActivity.fa.finish();
+
+        if(PlayNowActivity.active)
+            PlayNowActivity.fpn.finish();
+
+        if(BuyingActivity.active)
+            BuyingActivity.fb.finish();
+
     }
 
     @Override
