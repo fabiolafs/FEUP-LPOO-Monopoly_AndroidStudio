@@ -180,11 +180,20 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
+                case "0":
+                    PlayingActivity.setImage("0");
+                    break;
                 case "1":
                     PlayingActivity.setImage("1");
                     break;
+                case "2":
+                    PlayingActivity.setImage("2");
+                    break;
                 case "3":
                     PlayingActivity.setImage("3");
+                    break;
+                case "4":
+                    PlayingActivity.setImage("4");
                     break;
                 case "5":
                     PlayingActivity.setImage("5");
@@ -192,11 +201,17 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "6":
                     PlayingActivity.setImage("6");
                     break;
+                case "7":
+                    PlayingActivity.setImage("7");
+                    break;
                 case "8":
                     PlayingActivity.setImage("8");
                     break;
                 case "9":
                     PlayingActivity.setImage("9");
+                    break;
+                case "10":
+                    PlayingActivity.setImage("10");
                     break;
                 case "11":
                     PlayingActivity.setImage("11");
@@ -216,14 +231,23 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "16":
                     PlayingActivity.setImage("16");
                     break;
+                case "17":
+                    PlayingActivity.setImage("17");
+                    break;
                 case "18":
                     PlayingActivity.setImage("18");
                     break;
                 case "19":
                     PlayingActivity.setImage("19");
                     break;
+                case "20":
+                    PlayingActivity.setImage("20");
+                    break;
                 case "21":
                     PlayingActivity.setImage("21");
+                    break;
+                case "22":
+                    PlayingActivity.setImage("22");
                     break;
                 case "23":
                     PlayingActivity.setImage("23");
@@ -246,17 +270,26 @@ public class MainActivity extends Activity implements OnClickListener {
                 case "29":
                     PlayingActivity.setImage("29");
                     break;
+                case "30":
+                    PlayingActivity.setImage("30");
+                    break;
                 case "31":
                     PlayingActivity.setImage("31");
                     break;
                 case "32":
                     PlayingActivity.setImage("32");
                     break;
+                case "33":
+                    PlayingActivity.setImage("33");
+                    break;
                 case "34":
                     PlayingActivity.setImage("34");
                     break;
                 case "35":
                     PlayingActivity.setImage("35");
+                    break;
+                case "36":
+                    PlayingActivity.setImage("36");
                     break;
                 case "37":
                     PlayingActivity.setImage("37");
