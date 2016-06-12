@@ -27,7 +27,7 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage("Mortgage");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";Mortgage");
 
             }
 
@@ -38,7 +38,7 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage("Unmortgage");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";Unmortgage");
 
             }
 
@@ -49,7 +49,7 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage("Unmortgage");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";BuildHouse");
 
             }
 
@@ -60,7 +60,7 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage("Unmortgage");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+"BuildHotel");
 
             }
 
