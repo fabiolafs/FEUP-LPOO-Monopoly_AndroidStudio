@@ -29,6 +29,7 @@ public class BuyingActivity extends Activity {
 
         currImage = PlayingActivity.currImage;
 
+        if(PlayingActivity.active)
         PlayingActivity.fa.finish();
     }
 
@@ -36,6 +37,7 @@ public class BuyingActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+        if(PlayingActivity.active)
         PlayingActivity.fa.finish();
 
         currImage =PlayingActivity.currImage;
