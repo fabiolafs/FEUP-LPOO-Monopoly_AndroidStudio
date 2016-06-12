@@ -23,6 +23,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
     public static Integer id;
 
+    public static String playerProperties;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +132,20 @@ public class MainActivity extends Activity implements OnClickListener {
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
 
-            switch (values[0]){
+            String message=values[0];
+
+            System.out.println(message);
+
+            if(message.matches("Properties:(.*)")){
+                System.out.println("Entrei: "+message);
+                String[] parts = message.split(":");
+                playerProperties = parts[1];
+
+                ManageListActivity.properties=playerProperties;
+
+            };
+
+            switch (message){
                 case "Yes, you could set game properties":
                     Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
                     startActivity(i);
@@ -426,7 +441,6 @@ public class MainActivity extends Activity implements OnClickListener {
                         break;
                     }
             }
-
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
             intent.putExtra(MainActivity.KEY_RESPONSE, values);
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent);*/

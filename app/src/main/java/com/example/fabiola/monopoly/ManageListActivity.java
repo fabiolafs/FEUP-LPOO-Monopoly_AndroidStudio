@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.Vector;
 
 import static android.R.layout.simple_list_item_1;
 
@@ -18,11 +21,61 @@ public class ManageListActivity extends Activity {
 
     public static boolean active = false;
 
-    private String myStringArray[] = new String[]{"atlantic_avenue","baltic_avenue","bo_railroad","connecticut_avenue","electric_company"};
+    private static Vector<String> myStringArray = new Vector<String>();
 
-   public void onCreate(Bundle savedInstanceState){
+    public static String properties;
+
+    private static String property;
+
+    public static String imageSelected;
+
+    private static String name;
+
+    public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.manage_list);
+
+       properties = MainActivity.playerProperties;
+
+       name = PlayerPropertiesActivity.namePlayer;
+
+       TextView playerName = (TextView) findViewById(R.id.playerName_textView);
+       playerName.setText(name);
+
+        TextView playerBalance = (TextView) findViewById(R.id.money_textView);
+        playerBalance.setText(SettingsActivity.initialBalance);
+
+       int count = properties.length() - properties.replace(";", "").length();
+
+       properties = properties.replace(".","");
+
+       if(count!=0){
+           String property="";
+           String[] pp = properties.split(";");
+           for(int i=0; i<=count;i++) {
+               property = pp[i];
+               myStringArray.add(property);
+           }
+       }
+       else
+           myStringArray.add(properties);
+
+
+       for(String s:myStringArray)
+               System.out.println(s);
+
+       /*for(int i =0; i < properties.length();i++){
+           String c=properties.substring(i,i);
+           if(!c.equals(".")|| !c.equals(";")){
+               property+=c;
+           }
+           else{
+               myStringArray.add(property);
+               property="";
+           }
+
+       }*/
+
 
        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, simple_list_item_1, myStringArray);
 
@@ -33,9 +86,8 @@ public class ManageListActivity extends Activity {
            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
 
-               String theText = adapter.getItem(position);
+               imageSelected = adapter.getItem(position);
 
-               MainActivity.tcpClient.sendMessage(theText);
 
                Intent i = new Intent(getApplicationContext(), ShowPropertyActivity.class);
                //i.putExtra("property_name", theText);
@@ -61,6 +113,7 @@ public class ManageListActivity extends Activity {
            }
        });
 
+       System.out.println("Inicio manage----" + properties);
    }
 
     @Override
@@ -85,6 +138,8 @@ public class ManageListActivity extends Activity {
         super.onResume();
 
         active = true;
+
+
 
     }
 
