@@ -17,7 +17,6 @@ public class ShowPropertyActivity extends Activity {
 
     public static boolean active = false;
 
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.property_card);
@@ -60,8 +59,42 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+"BuildHotel");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";BuildHotel");
 
+            }
+
+        });
+
+        View sellhouses = findViewById(R.id.button12);
+        sellhouses.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";SellHouse");
+
+            }
+
+        });
+
+        View sellhotel = findViewById(R.id.button11);
+        sellhotel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";SellHotel");
+
+            }
+
+        });
+
+        View play = findViewById(R.id.button13);
+        play.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                finish();
+                startActivity(i);
             }
 
         });

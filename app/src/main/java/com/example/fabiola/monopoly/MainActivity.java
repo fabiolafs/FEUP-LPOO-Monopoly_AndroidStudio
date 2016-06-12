@@ -440,6 +440,27 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
+                case "You couldn't mortgage this property":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                        break;
+                case "You couldn't unmortgage this property":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't build more houses":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't build hotel":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't sell more houses":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't sell hotel":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                    }
+
+
             }
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
             intent.putExtra(MainActivity.KEY_RESPONSE, values);
@@ -448,7 +469,7 @@ public class MainActivity extends Activity implements OnClickListener {
             if (!response.equalsIgnoreCase(null)) {
                 Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
             }*/
-        }
+
 
         protected void onPostExecute(String result) {
             /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);

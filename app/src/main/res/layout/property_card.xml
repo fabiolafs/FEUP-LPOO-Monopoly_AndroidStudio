@@ -28,7 +28,8 @@
             android:text="Unmortgage"
             android:id="@+id/button7"
             android:layout_alignTop="@+id/button10"
-            android:layout_alignStart="@+id/button8" />
+            android:layout_alignStart="@+id/button8"
+            android:layout_toStartOf="@+id/button9" />
 
         <Button
             android:layout_width="wrap_content"
@@ -36,8 +37,7 @@
             android:text="Mortgage"
             android:id="@+id/button8"
             android:layout_above="@+id/button7"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp" />
+            android:layout_alignParentStart="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -45,8 +45,7 @@
             android:text="Build houses"
             android:id="@+id/button9"
             android:layout_alignTop="@+id/button8"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="47dp" />
+            android:layout_toEndOf="@+id/button8" />
 
         <Button
             android:layout_width="wrap_content"
@@ -55,5 +54,33 @@
             android:id="@+id/button10"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/button9" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell Hotel"
+            android:id="@+id/button11"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/button10" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell Houses"
+            android:id="@+id/button12"
+            android:layout_above="@+id/button11"
+            android:layout_toEndOf="@+id/button9" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:id="@+id/button13"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/button11" />
     </RelativeLayout>
 </RelativeLayout>
